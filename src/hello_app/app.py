@@ -8,7 +8,7 @@ import os
 def main(app):
     app.static_url_path = ''
     app.static_folder = 'hello_app/static'
-    db_name = 'mydb'
+    db_name = 'my-db'
     client = None
     db = None
 
@@ -26,8 +26,8 @@ def main(app):
     elif "CLOUDANT_URL" in os.environ:
         client = Cloudant(os.environ['CLOUDANT_USERNAME'], os.environ['CLOUDANT_PASSWORD'], url=os.environ['CLOUDANT_URL'], connect=True)
         db = client.create_database(db_name, throw_on_exists=False)
-    elif os.path.isfile('vcap-local.json'):
-        with open('vcap-local.json') as f:
+    elif os.path.isfile('src/vcap-local.json'):
+        with open('src/vcap-local.json') as f:
             vcap = json.load(f)
             print('Found local VCAP_SERVICES')
             creds = vcap['services']['cloudantNoSQLDB'][0]['credentials']
