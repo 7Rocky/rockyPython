@@ -12,6 +12,6 @@ setup(
     version='1.0.0',
     description='Hello World app for running Python apps on Bluemix',
     long_description=long_description,
-    url='https://github.com/7Rocky/rockyPython',
+    url='https://github.com/7Rocky/rockypython',
     license='ISC'
 )
