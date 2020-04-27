@@ -8,7 +8,7 @@ import os
 def main(app):
     app.static_url_path = 'hello_app/static/'
     app.static_folder = 'hello_app/static/'
-    db_name = 'my-db'
+    db_name = 'my-db-2'
     client = None
     db = None
 
@@ -36,6 +36,7 @@ def main(app):
             url = 'https://' + creds['host']
             client = Cloudant(user, password, url=url, connect=True)
             db = client.create_database(db_name, throw_on_exists=False)
+            print(db)
 
     @app.route('/')
     def root():
@@ -44,7 +45,7 @@ def main(app):
     @app.route('/api/visitors')
     def get_visitor():
         if client:
-            return jsonify(list(map(lambda doc: doc['name'], db)))
+            return jsonify(list(map(lambda doc: doc.get('name'), dict(db).values())))
         else:
             print('No database')
             return jsonify([])

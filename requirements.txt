@@ -1,4 +1,4 @@
-cloudant==2.4.0
+cloudant==2.13.0
 Flask>=1.1.1
 Flask-Caching==1.8.0
 Flask-Cors==3.0.8
