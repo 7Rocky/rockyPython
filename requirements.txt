@@ -1,5 +1,5 @@
 cloudant==2.13.0
 Flask>=1.1.1
 Flask-Caching==1.8.0
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask-HTTPAuth==3.3.0
